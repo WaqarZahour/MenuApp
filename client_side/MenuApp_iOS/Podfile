@@ -1,0 +1,19 @@
+platform :ios, '9.0'
+use_frameworks!
+pod 'Alamofire', '~> 3.0'
+pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+pod 'SVProgressHUD', :head
+pod 'SCLAlertView'
+
+target 'MenuApp' do
+
+end
+
+target 'MenuAppTests' do
+
+end
+
+target 'MenuAppUITests' do
+
+end
+

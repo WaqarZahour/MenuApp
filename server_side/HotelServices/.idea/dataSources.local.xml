@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Hotel Services" uuid="90d80f18-aac6-49e7-8c52-b68c54d4c2c4">
+      <secret-storage>master_key</secret-storage>
+    </data-source>
+  </component>
+</project>
