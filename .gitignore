@@ -1,2 +1,24 @@
-# Ignore Mac DS_Store File
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+
+# OS generated files #
+######################
 .DS_Store
+.idea
+
+# Xcode #
+######################
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/

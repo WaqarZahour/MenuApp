@@ -1,0 +1,6 @@
+2016-02-13 12:19:57,387 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2016-02-13 12:20:18,514 - werkzeug - INFO - 127.0.0.1 - - [13/Feb/2016 12:20:18] "GET /api/v1.0/menu/ HTTP/1.1" 401 -
+2016-02-13 12:20:33,515 - werkzeug - INFO - 127.0.0.1 - - [13/Feb/2016 12:20:33] "GET /api/v1.0/menu HTTP/1.1" 301 -
+2016-02-13 12:20:33,534 - werkzeug - INFO - 127.0.0.1 - - [13/Feb/2016 12:20:33] "GET /api/v1.0/menu/ HTTP/1.1" 401 -
+2016-02-13 12:21:51,724 - werkzeug - INFO - 127.0.0.1 - - [13/Feb/2016 12:21:51] "GET /api/v1.0/menu/ HTTP/1.1" 401 -
+2016-02-13 12:22:00,915 - werkzeug - INFO - 127.0.0.1 - - [13/Feb/2016 12:22:00] "GET /api/v1.0/menu/ HTTP/1.1" 200 -
