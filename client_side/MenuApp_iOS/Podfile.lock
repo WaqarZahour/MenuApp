@@ -1,13 +1,13 @@
 PODS:
   - Alamofire (3.1.2)
   - SCLAlertView (0.4.3)
-  - SVProgressHUD (HEAD based on 2.0-beta)
+  - SVProgressHUD (1.1.3)
   - SwiftyJSON (2.3.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - SCLAlertView
-  - SVProgressHUD (HEAD)
+  - SVProgressHUD
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -22,7 +22,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
   SCLAlertView: a5c726a80a938fd3127edd7dbc19da33fb936ca3
-  SVProgressHUD: c83337f10ed32d701c423d519059a249973c8662
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: d36d2dc39602a6a9d6908aa7d51964330bb9cfcd
+
+COCOAPODS: 1.0.1

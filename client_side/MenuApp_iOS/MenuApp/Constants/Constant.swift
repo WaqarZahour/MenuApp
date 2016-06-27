@@ -7,11 +7,11 @@
 //
 
 // Local Server URL
-let URL:String = "http://192.168.1.4:5000/api/v1.0/menu/"
+let URL:String = "http://192.168.1.5:5000/api/v1.0/menu/"
 
 // Auth
 let USER_NAME:String = "adam@test.com"
-let PASSWORD:String = "waqar"
+let PASSWORD:String = "test"
 
 // Error Messages
 let INTERNET_NOT_AVAILABLE_TITLE:String = "No Internet Connection"

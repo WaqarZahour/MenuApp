@@ -4,3 +4,13 @@
 2016-02-13 12:20:33,534 - werkzeug - INFO - 127.0.0.1 - - [13/Feb/2016 12:20:33] "GET /api/v1.0/menu/ HTTP/1.1" 401 -
 2016-02-13 12:21:51,724 - werkzeug - INFO - 127.0.0.1 - - [13/Feb/2016 12:21:51] "GET /api/v1.0/menu/ HTTP/1.1" 401 -
 2016-02-13 12:22:00,915 - werkzeug - INFO - 127.0.0.1 - - [13/Feb/2016 12:22:00] "GET /api/v1.0/menu/ HTTP/1.1" 200 -
+2016-06-27 23:58:27,033 - werkzeug - INFO -  * Running on http://192.168.1.5:5000/ (Press CTRL+C to quit)
+2016-06-27 23:59:56,334 - werkzeug - INFO - 192.168.1.5 - - [27/Jun/2016 23:59:56] "GET /api/v1.0/menu/ HTTP/1.1" 401 -
+2016-06-28 00:00:07,996 - werkzeug - INFO - 192.168.1.5 - - [28/Jun/2016 00:00:07] "GET /api/v1.0/menu/ HTTP/1.1" 401 -
+2016-06-28 00:00:20,408 - werkzeug - INFO - 192.168.1.5 - - [28/Jun/2016 00:00:20] "GET /api/v1.0/menu/ HTTP/1.1" 401 -
+2016-06-28 00:02:27,969 - werkzeug - INFO - 192.168.1.5 - - [28/Jun/2016 00:02:27] "GET /api/v1.0/menu/ HTTP/1.1" 200 -
+2016-06-28 00:02:28,232 - werkzeug - INFO - 192.168.1.5 - - [28/Jun/2016 00:02:28] "GET /favicon.ico HTTP/1.1" 404 -
+2016-06-28 00:02:28,241 - werkzeug - INFO - 192.168.1.5 - - [28/Jun/2016 00:02:28] "GET /favicon.ico HTTP/1.1" 404 -
+2016-06-28 00:39:28,025 - werkzeug - INFO - 192.168.1.5 - - [28/Jun/2016 00:39:28] "GET /api/v1.0/menu/ HTTP/1.1" 200 -
+2016-06-28 01:59:34,034 - werkzeug - INFO - 192.168.1.4 - - [28/Jun/2016 01:59:34] "GET /api/v1.0/menu/ HTTP/1.1" 401 -
+2016-06-28 01:59:34,272 - werkzeug - INFO - 192.168.1.4 - - [28/Jun/2016 01:59:34] "GET /api/v1.0/menu/ HTTP/1.1" 200 -
