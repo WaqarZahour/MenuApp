@@ -7,7 +7,7 @@
 //
 
 // Local Server URL
-let URL:String = "http://192.168.1.5:5000/api/v1.0/menu/"
+let URL:String = "http://ipaddress:port/api/v1.0/menu/"
 
 // Auth
 let USER_NAME:String = "adam@test.com"

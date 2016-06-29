@@ -100,7 +100,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let menu = self.menuList[row]
-        self.nameLabel.text = "Price: \(menu.price)"
+        self.nameLabel.text = "Price: \(menu.price)$"
         return menu.dish_name
     }
     
