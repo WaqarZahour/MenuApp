@@ -13,7 +13,7 @@ import SwiftyJSON
 class ServiceManager {
     
     static let defaultManager = ServiceManager()
-    private init() {}
+    fileprivate init() {}
     
     
      /**
@@ -21,30 +21,31 @@ class ServiceManager {
      - Parameter url: "http://192.168.1.4:5000/api/v1.0/menu/"
      - Returns: List of Menu Object
      */
-    func get_menu(url:String, completionHandler:(list: [Menu]?)->()) {
+    func get_menu(_ url:String, completionHandler:@escaping (_ list: [Menu]?)->()) {
         
-        Alamofire.request(.GET, url)
+        Alamofire.request(url)
             .authenticate(user:USER_NAME, password:PASSWORD)
             .responseJSON {response in
                 
                 print("Response String: \(response.result.value)")
                 
                 switch response.result {
-                case .Success(let data):
-                    print(data)
-                    print(JSON(data))
+                case .success(let result):
+                    print(result)
+                    print(JSON(result))
+                    let data = result as! NSArray
                     var tempList:[Menu] = []
-                    for var i = 0; i<data.count; ++i {
-                        let dictResult = data.objectAtIndex(i) as! NSDictionary
-                        let group_name = dictResult.valueForKey("tag_name") as! String
+                    for i in 0..<data.count {
+                        let dictResult = data.object(at: i) as! NSDictionary
+                        let group_name = dictResult.value(forKey: "tag_name") as! String
                         print(group_name)
                         
-                        let arr = dictResult.valueForKey("menu") as! NSArray
-                        for var j = 0; j<arr.count; ++j {
+                        let arr = dictResult.value(forKey: "menu") as! NSArray
+                        for j in 0..<arr.count {
                             
-                            let dictFormats = arr.objectAtIndex(j) as! NSDictionary
-                            let name = dictFormats.valueForKey("dish_name") as! String
-                            let price = dictFormats.valueForKey("price") as! Int
+                            let dictFormats = arr.object(at: j) as! NSDictionary
+                            let name = dictFormats.value(forKey: "dish_name") as! String
+                            let price = dictFormats.value(forKey: "price") as! Int
                             let menu = Menu(dish_name: name, price: price)
                             tempList.append(menu)
                             
@@ -52,12 +53,12 @@ class ServiceManager {
                             print(menu)
                         }
                     }
-                    completionHandler(list: tempList)
+                    completionHandler(tempList)
                     SVProgressHUD.dismiss()
-                case .Failure(let error):
+                case .failure(let error):
                     print("Request failed with error: \(error)")
                     SVProgressHUD.dismiss()
-                    showAlert(UNABLE_TO_CONNECT_TITLE, subTitle: UNABLE_TO_CONNECT_SUB_TITLE)
+                    showAlert(title: UNABLE_TO_CONNECT_TITLE, subTitle: UNABLE_TO_CONNECT_SUB_TITLE)
                 }
         }
         

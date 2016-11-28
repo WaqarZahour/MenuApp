@@ -15,7 +15,7 @@ func showAlert(title:String, subTitle:String) {
         subTitle: subTitle,
         duration: 5.0,
         completeText: "Done",
-        style: .Notice,
+        style: .notice,
         colorStyle: 0xFF0000,
         colorTextButton: 0xFFFFFF
     )
