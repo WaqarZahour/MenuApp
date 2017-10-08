@@ -95,7 +95,7 @@ class MenuVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let menu = ServiceManager.defaultManager.menuList[row]
-        self.nameLabel.text = "\(PRICE): \(menu.price)"
+        self.nameLabel.text = "\(PRICE): \(menu.price!)"
         return menu.dish_name
     }
     

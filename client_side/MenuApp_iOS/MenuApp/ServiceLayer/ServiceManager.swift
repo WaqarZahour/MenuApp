@@ -18,15 +18,12 @@ class ServiceManager {
     static let defaultManager = ServiceManager()
     private init() {}
     
-    
-    
     /// In this function consume the restful services, parse the Menu model object
     ///
     /// - Parameters:
     ///   - url: that si defined in the constant
     ///   - completionHandler: when data fetch successfully update the picker view
     func get_menu(_ url:String, completionHandler:@escaping ResponseComplete) {
-        
         Alamofire.request(url)
             .authenticate(user:USER_NAME, password:PASSWORD)
             .responseJSON {response in
@@ -36,10 +33,9 @@ class ServiceManager {
                     if let menuList = result as? Array<Dictionary<String, AnyObject>> {
                         for menuDict in menuList {
                             if let itemList = menuDict[MENU.lowercased()] as? [Dictionary<String, AnyObject>] {
-                                for itemDict in itemList {
-                                    let menu = Menu(dataDict: itemDict)
-                                    self.menuList.append(menu)
-                                    print(menu)
+                                for menuJSON in itemList {
+                                    let menu = Menu(JSON: menuJSON)
+                                    self.menuList.append(menu!)
                                 }
                             }
                         }

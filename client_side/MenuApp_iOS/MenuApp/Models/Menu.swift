@@ -7,21 +7,27 @@
 //
 
 import UIKit
+import ObjectMapper
 
-class Menu:CustomStringConvertible {
+class Menu: Mappable, CustomStringConvertible {
     
     // MARK: Properties
-    var dish_name: String
-    var price: Int
+    var dish_name: String?
+    var price: Int?
     
     var description: String {
-        return "Menu->\(self.dish_name)"
+        return "Menu->\(self.dish_name!)"
     }
 
     // MARK: Initialization
-    init(dataDict: Dictionary<String, AnyObject>) {
-        self.dish_name = dataDict["dish_name"] as! String
-        self.price = dataDict["price"] as! Int
+    required init?(map: Map) {
+        
+    }
+    
+    // Mappable
+    func mapping(map: Map) {
+        dish_name   <- map["dish_name"]
+        price       <- map["price"]
     }
 }
 
