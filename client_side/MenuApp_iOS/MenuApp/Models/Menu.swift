@@ -8,22 +8,20 @@
 
 import UIKit
 
-class Menu: NSObject {
+class Menu:CustomStringConvertible {
     
     // MARK: Properties
     var dish_name: String
     var price: Int
-    override var description: String {
+    
+    var description: String {
         return "Menu->\(self.dish_name)"
     }
 
     // MARK: Initialization
-    init(dish_name: String, price: Int) {
-        self.dish_name = dish_name
-        self.price = price
+    init(dataDict: Dictionary<String, AnyObject>) {
+        self.dish_name = dataDict["dish_name"] as! String
+        self.price = dataDict["price"] as! Int
     }
-    
-
-
 }
 

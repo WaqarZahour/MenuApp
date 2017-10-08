@@ -17,7 +17,7 @@ def create_app():
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
     app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
-
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
     limiter.init_app(app)
 
     db.init_app(app)

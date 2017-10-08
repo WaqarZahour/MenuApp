@@ -9,14 +9,21 @@
 import Foundation
 import SCLAlertView
 
-func showAlert(title:String, subTitle:String) {
-    SCLAlertView().showTitle(
-        title,
-        subTitle: subTitle,
-        duration: 5.0,
-        completeText: "Done",
-        style: .notice,
-        colorStyle: 0xFF0000,
-        colorTextButton: 0xFFFFFF
-    )
+class AlertHandler {
+    
+    /// This fucntion will show the alert in case of error occur of successfull completion
+    ///
+    /// - Parameters:
+    ///   - title: This is alert title
+    ///   - subTitle: This is the description
+    static func showAlert(title:String, subTitle:String) {
+        SCLAlertView().showTitle(
+            title,
+            subTitle: subTitle,
+            duration: 5.0,
+            completeText: "Done",
+            style: .notice,
+            colorStyle: 0xFF0000,
+            colorTextButton: 0xFFFFFF)
+    }
 }

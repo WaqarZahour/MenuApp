@@ -1,13 +1,14 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.1'
-use_frameworks!
-
-pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
-pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
-pod 'SCLAlertView'
+platform :ios, '10.0'
 
 target 'MenuApp' do
-    pod 'Alamofire', '~> 4.0'
+    use_frameworks!
+    
+    pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+    pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
+    pod 'SCLAlertView'
+    pod 'Alamofire', '~> 4.4'
+    pod 'ObjectMapper', '~> 2.2'
 end
 
 target 'MenuAppTests' do

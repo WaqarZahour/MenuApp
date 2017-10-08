@@ -10,16 +10,13 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
+class MenuVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // MARK: - Properties
     @IBOutlet weak var nameLabel:UILabel!
     @IBOutlet weak var shakeLabel:UILabel!
     @IBOutlet weak var pickerView:UIPickerView!
 
-
-    var menuList:[Menu] = []
     var timer = Timer()
     var isShake = false
     var randomIndex = 0
@@ -28,8 +25,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.title = "Menu"
-        self.nameLabel.text = "Price"
+        self.title = MENU
+        self.nameLabel.text = PRICE
         reloadData()
     }
 
@@ -40,17 +37,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func reloadData() {
         if Reachability.isConnectedToNetwork() == false {
-            showAlert(title: INTERNET_NOT_AVAILABLE_TITLE, subTitle: INTERNET_NOT_AVAILABLE_SUB_TITLE)
+            AlertHandler.showAlert(title: INTERNET_NOT_AVAILABLE_TITLE, subTitle: INTERNET_NOT_AVAILABLE_SUB_TITLE)
             return
         }
         
         // Load the menu from service
         SVProgressHUD.show(withStatus: "Loading...")
         let service_manager:ServiceManager = ServiceManager.defaultManager
-        service_manager.get_menu(URL) { list in
-            if let list = list {
-                print(list)
-                self.menuList = list
+        service_manager.get_menu(URL) { success in
+            SVProgressHUD.dismiss()
+            if success {
                 DispatchQueue.main.async {
                     self.pickerView.reloadAllComponents()
                 }
@@ -68,12 +64,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 isShake = !isShake
                 if isShake {
                     print("Shake")
-                    self.shakeLabel.text = "'Shake your device to stop'"
-                    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
+                    self.shakeLabel.text = SHAKE_STOP
+                    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
                 }
                 else {
                     print("Stop Shake")
-                    self.shakeLabel.text = "'Shake your device to start'"
+                    self.shakeLabel.text = SHAKE_START
                     timer.invalidate()
                 }
             }
@@ -83,8 +79,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
      This function generate the random number and move the picker index
      */
     func update() {
-        
-        randomIndex = Int(arc4random_uniform(UInt32(self.menuList.count)))
+        randomIndex = Int(arc4random_uniform(UInt32(ServiceManager.defaultManager.menuList.count)))
         self.pickerView.selectRow(randomIndex, inComponent: 0, animated: false)
     }
     
@@ -95,12 +90,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.menuList.count;
+        return ServiceManager.defaultManager.menuList.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let menu = self.menuList[row]
-        self.nameLabel.text = "Price: \(menu.price)"
+        let menu = ServiceManager.defaultManager.menuList[row]
+        self.nameLabel.text = "\(PRICE): \(menu.price)"
         return menu.dish_name
     }
     
